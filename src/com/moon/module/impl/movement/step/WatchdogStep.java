@@ -102,6 +102,8 @@ public class WatchdogStep extends SubModule<Step> {
 
    @Subscribe
    public void onStep(StepEvent event) {
+      if (mc.thePlayer == null) return;
+
       ModuleManager moduleManager = Moon.getInstance().getModuleManager();
       if (!moduleManager.<Module>getModule(ScaffoldWalk.class).isEnabled()
          && !moduleManager.<Module>getModule(Speed.class).isEnabled()
